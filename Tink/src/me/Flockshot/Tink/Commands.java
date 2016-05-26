@@ -127,13 +127,13 @@ public class Commands
 					{
 						try {
 							@SuppressWarnings("unused")
-							Sound sound = Sound.valueOf(args[1]);
+							Sound sound = Sound.valueOf(args[1].toUpperCase());
 							}catch(Exception e) {								
 								sender.sendMessage(ChatColor.DARK_RED + "Error" +ChatColor.DARK_GRAY+": " + ChatColor.GRAY+ "Invalid Sound Name.");
 								return;
 							}							
-							plugin.getConfig().set("SoundName", args[1]);
-							sender.sendMessage(ChatColor.YELLOW + "Set Value of "+ChatColor.RED+"Sound "+ChatColor.YELLOW+"to " + ChatColor.DARK_GREEN + args[1]);
+							plugin.getConfig().set("SoundName", args[1].toUpperCase());
+							sender.sendMessage(ChatColor.YELLOW + "Set Value of "+ChatColor.RED+"Sound "+ChatColor.YELLOW+"to " + ChatColor.DARK_GREEN + args[1].toUpperCase());
 					}
 					
 					else if(args[0].toLowerCase().equals("volume") || args[0].toLowerCase().equals("v"))
