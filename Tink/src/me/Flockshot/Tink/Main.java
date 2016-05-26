@@ -23,10 +23,7 @@ public class Main extends JavaPlugin
 		//getServer().getPluginManager().registerEvents(new ChatPacket(), this);
 		getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 		new Commands(this);
-		
 
-
-		logger.info( plug.getName() + " " + plug.getVersion() + " has been loaded.");		
 		getConfig().options().copyDefaults(true);
 		saveConfig();
 		
@@ -50,7 +47,7 @@ public class Main extends JavaPlugin
 				return;
 			}
 			
-
+		logger.info( plug.getName() + " " + plug.getVersion() + " has been loaded.");
 		
     }
 		
