@@ -1,0 +1,4 @@
+SoundName: "ORB_PICKUP"
+Volume: 10000
+Pitch: 10
+ToggleonFirstJoin: true

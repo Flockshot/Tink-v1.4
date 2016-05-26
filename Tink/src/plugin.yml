@@ -1,0 +1,19 @@
+main: me.Flockshot.Tink.Main
+name: Tink
+description: Message Notifier Made by Flocky <3 <3
+version: 1.4
+authors: [Flockshot]
+commands:
+  toggletink: 
+    description: Toggles Message Notifier On or Off
+  tink: 
+    description: Info for Tink plugin
+  tinkconfig:  
+    description: Change values of config or reload config 
+permissions: 
+  tink.toggle: 
+    description: Allows user to access the command /toggletink.
+  tink.admin.toggle: 
+    description: Allows admin to change players message notifier value.
+  tink.config: 
+    description: Allows player to change values in config or reload it.
