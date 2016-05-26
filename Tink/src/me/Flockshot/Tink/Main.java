@@ -41,13 +41,15 @@ public class Main extends JavaPlugin
 				e.printStackTrace();
 			}
 		
-		Sound s = Sound.valueOf((String) this.getConfig().get("SoundName"));
-		
-		if(s==null)
-		{
-			logger.info( plug.getName() + " " + plug.getVersion() + " Invalid Sound Name in Config.");	
-			this.getPluginLoader().disablePlugin(this);
-		}
+		try {
+			@SuppressWarnings("unused")
+			Sound s = Sound.valueOf((String) this.getConfig().get("SoundName"));
+			}catch(Exception e) {								
+				logger.info( plug.getName() + " " + plug.getVersion() + " Invalid Sound Name in Config.");
+				this.getPluginLoader().disablePlugin(this);
+				return;
+			}
+			
 
 		
     }
