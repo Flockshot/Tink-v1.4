@@ -180,7 +180,15 @@ public class Commands
 			         sender.sendMessage(ChatColor.GREEN + "[Tink] Config reloaded!");
 			         System.out.println("[Tink] Config reloaded!");
 				}
-				else sender.sendMessage(ChatColor.RED + "Syntax" + ChatColor.DARK_GRAY + ": " +ChatColor.GRAY+ "/tinkconfig <Sound|Volume|Pitch|JoinToggle|Reload> <value>");
+				else if(args.length>=1 && args[0].toLowerCase().equals("config"))
+				{					
+			        sender.sendMessage(ChatColor.GREEN+"Sound"+ChatColor.DARK_GRAY+": " +ChatColor.DARK_GREEN+plugin.getConfig().get("SoundName") );
+			        sender.sendMessage(ChatColor.GREEN+"Volume"+ChatColor.DARK_GRAY+": " +ChatColor.DARK_GREEN+ plugin.getConfig().get("Volume"));
+			        sender.sendMessage(ChatColor.GREEN+"Pitch"+ChatColor.DARK_GRAY+": " +ChatColor.DARK_GREEN+plugin.getConfig().get("Pitch") );
+			        sender.sendMessage(ChatColor.GREEN+"ToggleonFirstJoin"+ChatColor.DARK_GRAY+": " +ChatColor.DARK_GREEN+plugin.getConfig().get("ToggleonFirstJoin") );
+				}
+				
+				else sender.sendMessage(ChatColor.RED + "Syntax" + ChatColor.DARK_GRAY + ": " +ChatColor.GRAY+ "/tinkconfig <Sound|Volume|Pitch|JoinToggle|Reload|Config> <value>");
 			}
 		}
 
