@@ -113,8 +113,7 @@ public void onCmd(PlayerCommandPreprocessEvent event)
 		if(player.hasPermission("essentials.msg"))
 		{				
 			plr = user.getReplyTo().getPlayer();
-					
-			player.sendMessage("Outside plr!=null");
+
 			if(plr!=null)
 			{
 						
