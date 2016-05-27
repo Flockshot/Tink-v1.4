@@ -38,6 +38,10 @@ public void onCmd(PlayerCommandPreprocessEvent event)
 	File file = new File(plugin.getDataFolder(), "TinkToggle.yml");
 	FileConfiguration f = YamlConfiguration.loadConfiguration(file);
 	
+	Essentials e = (Essentials) Bukkit.getServer().getPluginManager().getPlugin("Essentials");
+	User user = e.getUser(player);
+	User u;
+	
 	Sound s = Sound.valueOf((String) plugin.getConfig().get("SoundName"));
 	float v = plugin.getConfig().getInt("Volume");
 	float p = plugin.getConfig().getInt("Pitch");	
@@ -45,9 +49,7 @@ public void onCmd(PlayerCommandPreprocessEvent event)
 	
 	if(msg.startsWith("/msg") || msg.startsWith("/w") || msg.startsWith("/mail") || msg.startsWith("/m") ||  msg.startsWith("/emsg") ||  msg.startsWith("/whisper") ||  msg.startsWith("/tell") ||  msg.startsWith("/email") ||  msg.startsWith("/ewhisper") ||  msg.startsWith("/etell") || msg.startsWith("/t") )
 	{
-		Essentials e = (Essentials) Bukkit.getServer().getPluginManager().getPlugin("Essentials");
-		User user = e.getUser(player);
-		User u;
+		
 		
 		if(!user.isMuted())
 		{
@@ -102,36 +104,38 @@ public void onCmd(PlayerCommandPreprocessEvent event)
 					}
 				}
 			}
-			
-			else if(msg.startsWith("/r") || msg.startsWith("/er") || msg.startsWith("/reply"))
-			{
-				if(player.hasPermission("essentials.msg"))
-				{		
-					plr = user.getReplyTo().getPlayer();
-					
-					
-					if(plr!=null)
-					{
-						u = e.getUser(plr);
-						if(u!=null)
-						{
-							if((!e.getVanishedPlayers().contains(plr.getName()) && !u._getIgnoredPlayers().contains(player.getName()) ) || player.isOp())
-							{
-								toggled = f.getBoolean(plr.getName());
-								if(s!=null)
-								{
-									if(toggled)
-									{								
-										plr.playSound(plr.getLocation(), s, v, p);		
-									}
-								}
-							}
-						}						
-					}					
-				}				
-			}
 		}
-	}	
+	}
+			
+	else if(msg.startsWith("/r") || msg.startsWith("/er") || msg.startsWith("/reply"))
+	{
+		
+		if(player.hasPermission("essentials.msg"))
+		{				
+			plr = user.getReplyTo().getPlayer();
+					
+			player.sendMessage("Outside plr!=null");
+			if(plr!=null)
+			{
+						
+				u = e.getUser(plr);
+				if(u!=null)
+				{
+					if((!e.getVanishedPlayers().contains(plr.getName()) && !u._getIgnoredPlayers().contains(player.getName())) || player.isOp())
+					{
+						toggled = f.getBoolean(plr.getName());
+						if(s!=null)
+						{
+							if(toggled)
+							{								
+								plr.playSound(plr.getLocation(), s, v, p);		
+							}
+						}
+					}
+				}						
+			}					
+		}				
+	}		
 }
 
 @EventHandler
