@@ -47,7 +47,7 @@ public void onCmd(PlayerCommandPreprocessEvent event)
 	float p = plugin.getConfig().getInt("Pitch");	
 	boolean toggled;	
 	
-	if(msg.startsWith("/msg") || msg.startsWith("/w") || msg.startsWith("/mail") || msg.startsWith("/m") ||  msg.startsWith("/emsg") ||  msg.startsWith("/whisper") ||  msg.startsWith("/tell") ||  msg.startsWith("/email") ||  msg.startsWith("/ewhisper") ||  msg.startsWith("/etell") || msg.startsWith("/t") )
+	if(msg.startsWith("/msg ") || msg.startsWith("/w ") || msg.startsWith("/mail ") || msg.startsWith("/m ") ||  msg.startsWith("/emsg ") ||  msg.startsWith("/whisper ") ||  msg.startsWith("/tell ") ||  msg.startsWith("/email ") ||  msg.startsWith("/ewhisper ") ||  msg.startsWith("/etell ") || msg.startsWith("/t ") )
 	{
 		
 		
@@ -107,7 +107,7 @@ public void onCmd(PlayerCommandPreprocessEvent event)
 		}
 	}
 			
-	else if(msg.startsWith("/r") || msg.startsWith("/er") || msg.startsWith("/reply"))
+	else if(msg.startsWith("/r ") || msg.startsWith("/er ") || msg.startsWith("/reply "))
 	{
 		
 		if(player.hasPermission("essentials.msg"))
