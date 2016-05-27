@@ -1,7 +1,7 @@
 main: me.Flockshot.Tink.Main
 name: Tink
 description: Message Notifier Made by Flocky <3 <3
-version: 1.4
+version: 1.5
 authors: [Flockshot]
 commands:
   toggletink: 
